@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload CSV</title>
+    <link rel="stylesheet" href="css/style2.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+
+    <header class="upload-header">
+        <h1>Upload Your CSV File</h1>
+    </header>
+
+    <main class="upload-main">
+        <div class="requirements">
+            <h2>Requirements for Uploading</h2>
+            <ul>
+                <li>The file must be in CSV format.</li>
+                <li>The maximum file size is 5 MB.</li>
+                <li>Please ensure all columns are correctly labeled.</li>
+                <li>Make sure there are no empty rows.</li>
+                <li>Only use UTF-8 encoding for text.</li>
+            </ul>
+        </div>
+        
+        <div class="upload-form-container">
+            <form id="upload-form" class="upload-form" enctype="multipart/form-data">
+                <label for="csv-file">Choose CSV file:</label>
+                <input type="file" id="csv-file" name="csv-file" accept=".csv" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script> <!-- Link to your JavaScript file if needed -->
+</body>
+</html>

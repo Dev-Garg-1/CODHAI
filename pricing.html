@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans</title>
+    <link rel="stylesheet" href="css/style3.css"> <!-- Ensure this points to your CSS file -->
+</head>
+<body>
+
+    <header class="pricing-header">
+        <h1 style="color: #00cf30;">Pricing Plans</h1>
+    </header>
+
+    <main class="pricing-main">
+        <h2 style="color: white;">Which category do you belong to?</h2>
+        <div class="pricing-buttons">
+            <button id="startup-btn">YC Startup / Bootstrap Company</button>
+            <button id="company-btn">Full-Fledged Company</button>
+        </div>
+
+        <div id="pricing-info" class="pricing-info" style="display: none;">
+            <h3>Pricing Details:</h3>
+            <p id="startup-info" style="display: none;">
+                We can handle things for you, but in return, you will have to give us 1% to 2% of your annual revenue.
+            </p>
+            <p id="company-info" style="display: none;">
+                Collaborate with higher CRMs that use our service as add-ons, and you will pay a particular subscription fee.
+            </p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Codhai. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script> <!-- Link to your JavaScript file -->
+    <script>
+        document.getElementById("startup-btn").onclick = function() {
+            document.getElementById("pricing-info").style.display = "block";
+            document.getElementById("startup-info").style.display = "block";
+            document.getElementById("company-info").style.display = "none";
+        }
+
+        document.getElementById("company-btn").onclick = function() {
+            document.getElementById("pricing-info").style.display = "block";
+            document.getElementById("company-info").style.display = "block";
+            document.getElementById("startup-info").style.display = "none";
+        }
+    </script>
+</body>
+</html>

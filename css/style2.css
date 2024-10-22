@@ -1,0 +1,101 @@
+body{
+    background-color: black;
+}
+
+
+
+/* Upload Page Styles */
+.upload-header {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .upload-main {
+    display: flex;
+    justify-content: space-between; /* Adjust for side-by-side layout */
+    align-items: flex-start; /* Align items at the top */
+    height: auto; /* Adjust height */
+    background-color: #1e1e1e; /* Light background */
+    padding: 20px;
+  }
+  
+  .requirements {
+    flex: 1; /* Allow requirements to take up space */
+    max-width: 400px; /* Set a max width */
+    padding: 20px;
+    background-color: #ffffff; /* White background for requirements */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    margin-right: 20px; /* Spacing between sections */
+  }
+  
+  .requirements h2 {
+    margin-bottom: 15px;
+    color: #ff4c4c; /* Color for heading */
+  }
+  
+  .requirements ul {
+    list-style-type: disc; /* Bullet points */
+    padding-left: 20px; /* Indent the list */
+  }
+  
+  .upload-form-container {
+    flex: 1; /* Allow form to take up space */
+  }
+  
+  .upload-form {
+    background-color: #ffffff; /* White background for form */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    padding: 30px;
+    max-width: 400px; /* Limit the width */
+    width: 100%; /* Full width up to max */
+  }
+  
+  .upload-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333; /* Dark text */
+  }
+  
+  .upload-form input[type="file"] {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%; /* Full width */
+  }
+  
+  .upload-form button {
+    background-color: #ff4c4c; /* Red background */
+    color: #ffffff; /* White text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for button */
+    font-size: 16px; /* Button text size */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease; /* Transition effect */
+  }
+  
+  .upload-form button:hover {
+    background-color: #e04343; /* Darker red on hover */
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #1e1e1e; /* Same as header */
+    color: #ffffff; /* White text */
+    position: relative; /* Positioning */
+    bottom: 0; /* Align to bottom */
+    width: 100%; /* Full width */
+  }
+
+
+
+
+

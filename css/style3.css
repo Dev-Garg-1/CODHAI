@@ -1,0 +1,54 @@
+body{
+    background-color: black;
+}
+
+
+
+
+
+
+
+
+/* Pricing Page Styles */
+.pricing-header {
+    background-color: #1e1e1e; /* Dark background */
+    color: #ffffff; /* White text */
+    padding: 20px;
+    text-align: center;
+}
+
+.pricing-main {
+    margin-top: 100px;
+    height: 300px;
+    padding: 20px;
+    text-align: center; /* Centered content */
+    background-color: #1e1e1e; /* Light background for contrast */
+}
+
+.pricing-buttons {
+    margin: 20px 0;
+}
+
+.pricing-buttons button {
+    background-color: #ff4c4c; /* Red background */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 10px; /* Spacing between buttons */
+    transition: background-color 0.3s ease; /* Transition effect */
+}
+
+.pricing-buttons button:hover {
+    background-color: #e04343; /* Darker red on hover */
+}
+
+.pricing-info {
+    background-color: #ffffff; /* White background for info */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    margin-top: 20px; /* Spacing from buttons */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
