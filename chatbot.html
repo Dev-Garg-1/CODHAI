@@ -22,47 +22,40 @@
         const userInput = document.getElementById('user-input');
         const sendButton = document.getElementById('send-button');
 
+        // Predefined questions and answers
+        const responses = {
+            "how do i upload my csv file": "To upload your CSV file, click on the 'Upload CSV' button located at the top of the page. Make sure your file follows the required format, with columns like customer ID, last interaction date, subscription status, etc.",
+            "what format should the csv file be in": "Your CSV should have clearly labeled columns. Some important columns include:\nCustomer ID\nLast Interaction Date\nTotal Purchases\nSubscription Status\nEngagement Level\nCustomer Age, etc. Feel free to check our sample CSV template [here].",
+            "how does the churn prediction work": "Our model uses historical customer data such as interaction frequency, purchases, and engagement levels to predict which customers are most likely to churn. The model identifies patterns in customer behavior to provide you with a churn probability score for each customer.",
+            "how accurate are the churn predictions": "The accuracy of our predictions depends on the quality and quantity of your data. On average, our churn model achieves an accuracy of X% based on a variety of business types. However, more detailed customer data will yield better predictions.",
+            "what steps should i take to reduce churn": "Our system will provide customized suggestions based on your data. Common recommendations include:\n- Personalized communication with at-risk customers\n- Offering discounts or loyalty programs\n- Re-engaging inactive users through targeted marketing\n- Improving customer support.",
+            "how long does the analysis take": "Depending on the size of your dataset, analysis typically takes between a few seconds and a few minutes. Once the analysis is complete, you will receive a detailed report on predicted churn rates and suggested preventive actions.",
+            "what kind of insights will i receive after the analysis": "You will receive insights like:\n- Which customers are most likely to churn\n- Reasons behind the churn risk\n- Suggested actions to prevent churn\n- Predicted financial impact of customer loss\n- Key metrics like engagement scores, purchase trends, and more.",
+            "can i download the churn analysis report": "Yes, once the analysis is complete, you can download the detailed report in PDF or Excel format. The report will contain all predictions and recommendations, helping you take action on your churn prevention strategy.",
+            "how can i track churn prevention progress over time": "You can upload updated data regularly, and we will track changes in customer behavior, showing improvements or risks over time. Our system will also track the impact of actions you’ve taken to prevent churn.",
+            "do you provide churn prevention solutions for small companies": "Yes, our system is designed to be scalable and can provide personalized churn prevention strategies regardless of the size of your business. We analyze your unique customer base and suggest practical, cost-effective solutions.",
+            "what happens if there is missing data in my csv file": "If there is missing data, our system will handle it intelligently by either filling in gaps with averages or excluding the affected records. However, for best results, we recommend providing as complete data as possible.",
+            "can i integrate my crm with your system": "Currently, we support CSV file uploads. However, we are working on CRM integration for popular systems like Salesforce, HubSpot, and others. Stay tuned for updates!",
+            "can i get real-time predictions or do i need to re-upload data": "Our system currently works on a batch analysis method, which means you will need to upload a CSV file each time you want updated predictions. We are exploring real-time data integration for future releases.",
+            "how are the predictions generated": "The predictions are generated using machine learning algorithms trained on historical customer data. The model looks at customer behavior patterns, engagement rates, and purchase history to predict churn risk.",
+            "can i request a custom churn prevention solution": "Yes, if you require custom analysis or have specific needs, feel free to reach out to us via the 'Grow with Us' section. We’ll work with you to tailor a solution that fits your business model.",
+            "how do you ensure data privacy": "We take data privacy very seriously. All uploaded files are encrypted, and we comply with industry-standard data protection protocols to ensure that your data is secure and never shared with third parties."
+        };
+
         sendButton.addEventListener('click', () => {
-            const message = userInput.value.trim();
+            const message = userInput.value.trim().toLowerCase().replace(/[\?]+$/, ''); // Normalize input
             if (message) {
                 addMessage(message, 'user');
                 userInput.value = '';
-
-                // Call the Hugging Face API for bot response
+                // Get bot response from the predefined responses
                 getBotResponse(message);
             }
         });
 
-        async function getBotResponse(message) {
-    const apiUrl = 'https://api-inference.huggingface.co/models/gpt-2'; // Replace with your model API URL
-    const token = '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'; // Replace with your actual access token
-
-    try {
-        const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ inputs: message }) // Sending user message to the model
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-            console.log('API Response:', data); // Log the entire response
-            const botResponse = data[0].generated_text || 'No response generated.'; // Adjust according to the API response structure
-            addMessage(botResponse, 'bot');
-        } else {
-            const errorData = await response.json();
-            console.error('Error response:', errorData); // Log error details
-            addMessage(`Error: ${errorData.error || 'Unable to get response from the model.'}`, 'bot');
+        function getBotResponse(message) {
+            const response = responses[message] || "I'm sorry, I don't understand that question.";
+            addMessage(response, 'bot');
         }
-    } catch (error) {
-        console.error('Error fetching response:', error);
-        addMessage('Error: Unable to connect to the model.', 'bot');
-    }
-}
-
 
         function addMessage(message, sender) {
             const messageElement = document.createElement('div');
