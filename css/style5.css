@@ -1,0 +1,76 @@
+body {
+    background-color: #000; /* Black background */
+    font-family: Arial, sans-serif; /* Font for the page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container, .signup-container {
+    width: 100%;
+    max-width: 400px; /* Limit the width of the card */
+}
+
+.login-card, .signup-card {
+    background-color: #c8102e; /* Red background for the card */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    color: #fff; /* White text */
+}
+
+h2 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.input-group {
+    margin-bottom: 15px; /* Space between input groups */
+}
+
+label {
+    display: block; /* Block display for labels */
+    margin-bottom: 5px; /* Space below the label */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 90%; /* Full width input */
+    padding: 10px; /* Padding inside the input */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded input corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+button {
+    width: 100%; /* Full width button */
+    padding: 10px;
+    background-color: #000; /* Black background for button */
+    color: #c8102e; /* Red text for button */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded button corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size for the button */
+}
+
+button:hover {
+    background-color: #c8102e; /* Change to red on hover */
+    color: #fff; /* White text on hover */
+}
+
+.signup-link, .login-link {
+    text-align: center; /* Center the link */
+    margin-top: 10px; /* Space above the link */
+}
+
+a {
+    color: #fff; /* White links */
+    text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
