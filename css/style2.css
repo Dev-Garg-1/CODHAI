@@ -97,5 +97,34 @@ body{
 
 
 
+  .result {
+    background-color: #ffffff; /* White background for results */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    padding: 20px;
+    margin: 20px auto; /* Center the result section with auto margins */
+    max-width: 600px; /* Optional: limit the width of the results */
+}
+
+.result h2 {
+    color: #ff4c4c; /* Color for heading */
+    text-align: center; /* Center the heading */
+}
+
+.result table {
+    width: 100%; /* Full width for table */
+    border-collapse: collapse; /* Collapse borders */
+}
+
+.result th, .result td {
+    border: 1px solid #ddd; /* Border for table cells */
+    padding: 8px; /* Padding for table cells */
+    text-align: left; /* Left alignment */
+}
+
+.result th {
+    background-color: #f2f2f2; /* Light gray background for header */
+}
+
 
 

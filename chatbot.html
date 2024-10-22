@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot</title>
     <link rel="stylesheet" href="css/style4.css"> <!-- Use your existing stylesheet -->
-       
 </head>
 <body>
     <div id="navbar-container"></div> <!-- Placeholder for the navbar -->
@@ -18,7 +17,6 @@
         </div>
     </div>
 
-
     <script>
         const chatBox = document.getElementById('chat-box');
         const userInput = document.getElementById('user-input');
@@ -30,14 +28,41 @@
                 addMessage(message, 'user');
                 userInput.value = '';
 
-                // Here you would typically send the message to your backend for processing
-                // Simulating a bot response for now
-                setTimeout(() => {
-                    const botResponse = "This is a simulated response from the bot."; // Placeholder for the actual bot response
-                    addMessage(botResponse, 'bot');
-                }, 1000);
+                // Call the Hugging Face API for bot response
+                getBotResponse(message);
             }
         });
+
+        async function getBotResponse(message) {
+    const apiUrl = 'https://api-inference.huggingface.co/models/gpt-2'; // Replace with your model API URL
+    const token = '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'; // Replace with your actual access token
+
+    try {
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ inputs: message }) // Sending user message to the model
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log('API Response:', data); // Log the entire response
+            const botResponse = data[0].generated_text || 'No response generated.'; // Adjust according to the API response structure
+            addMessage(botResponse, 'bot');
+        } else {
+            const errorData = await response.json();
+            console.error('Error response:', errorData); // Log error details
+            addMessage(`Error: ${errorData.error || 'Unable to get response from the model.'}`, 'bot');
+        }
+    } catch (error) {
+        console.error('Error fetching response:', error);
+        addMessage('Error: Unable to connect to the model.', 'bot');
+    }
+}
+
 
         function addMessage(message, sender) {
             const messageElement = document.createElement('div');
